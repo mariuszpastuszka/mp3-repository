@@ -24,16 +24,24 @@
     - tworzenie/modyfikacja/usuwanie;
 
 3) Możliwość wyszukiwania
+    Album:
+    - wszystkie
     - kategorie
-    - albumy
-    - piosenki
-    - określona długość
     - wykonawca
-    - rok wydania
+    - rok wydania;
+    - ulubione;
+
+    Piosenki:
+    - wszystkie
+    - albumy
+    - określona długość
+    - po ocenie
+    - ulubione
 4) GUI
 5) Dodawanie/modyfikowanie/usuwanie albumów i mp3
 6) Ulubione
     - piosenki
+    - albumy
 7) Własna ocena/komentarz - albumy i piosenki
     - dodawanie/modyfikowanie/usuwanie
 8) Wyświetlanie wraz z możliwością sortowania albumów/piosenek:

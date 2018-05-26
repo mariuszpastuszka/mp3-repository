@@ -36,7 +36,7 @@ public class AlbumTest {
     @Test
     public void creationAlbum_nullSongsList_withRule() {
         ruleException.expect(NullPointerException.class);
-        ruleException.expectMessage("[listOfSongs] cannot be null!");
+        ruleException.expectMessage("[listOfSongs] cannot be null!!");
 
         Album newAlbum = new Album(null, "Piosenki ludowe", new Performer());
     }
