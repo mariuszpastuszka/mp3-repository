@@ -1,0 +1,51 @@
+1) Przechowuje listę albumów wraz z mp3
+    Album:
+        - lista piosenek
+        - tytuł
+        - wykonawca - na razie String
+            - lista członków zespołu
+        - rok wydania
+        - wydawnictwo fonograficzne
+        - wydawca
+        - kategoria/gatunek
+        - okładka
+        - cena
+        - ocena albumu (liczbowa)
+        - opinia (opis)
+        - rodzaj nośnika
+
+    Piosenka:
+        - długość;
+        - tutuł;
+        - album - pochodzenie;
+        - ocena (liczbowa);
+
+2) Kategorii albumów:
+    - tworzenie/modyfikacja/usuwanie;
+
+3) Możliwość wyszukiwania
+    - kategorie
+    - albumy
+    - piosenki
+    - określona długość
+    - wykonawca
+    - rok wydania
+4) GUI
+5) Dodawanie/modyfikowanie/usuwanie albumów i mp3
+6) Ulubione
+    - piosenki
+7) Własna ocena/komentarz - albumy i piosenki
+    - dodawanie/modyfikowanie/usuwanie
+8) Wyświetlanie wraz z możliwością sortowania albumów/piosenek:
+    - albumów;
+    - piosenke w albumie;
+    - gatunek -> album -> piosenki.
+
+9) Export do pliku (json/xml/inne)
+
+Techniczne kwestie:
+1) Gui w Swingu
+2) Testy JUnit/Mockito
+3) Guava
+4) Dane: baza / plik properties
+5) Logger log4j
