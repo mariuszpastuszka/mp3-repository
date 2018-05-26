@@ -1,5 +1,7 @@
 package pl.mpas.mp3_repository.service;
 
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 import pl.mpas.mp3_repository.dao.AlbumDao;
 import pl.mpas.mp3_repository.model.Album;
 import pl.mpas.mp3_repository.model.Performer;
@@ -23,41 +25,51 @@ public class AlbumServiceImpl implements AlbumService {
 
     @Override
     public AlbumCreationResult createNewAlbum(Album newAlbum) {
+        Preconditions.checkNotNull(newAlbum, "[newAlbum] cannot be null!");
         return null;
+//        return albumDao.saveNewAlbum(newAlbum);
     }
 
     @Override
     public boolean deleteAlbum(Album album) {
-        return false;
+        Preconditions.checkNotNull(album,"[album] cannot be null");
+        return albumDao.deleteAlbum(album);
     }
 
     @Override
     public Album updateAlbum(Album updated) {
-        return null;
+        Preconditions.checkNotNull(updated, "[updated] cannot be null!");
+        return albumDao.updateAlbum(updated);
     }
 
     @Override
     public List<Album> findAllAlbums() {
-        return null;
+        return albumDao.readAllAlbums();
     }
 
     @Override
     public List<Album> findAlbumsFromCategory(String category) {
-        return null;
+        if (Strings.isNullOrEmpty(category)) {
+            throw new IllegalArgumentException("[category] cannot be null!");
+        }
+        return albumDao.readAlbumsFromCategory(category);
     }
 
     @Override
     public List<Album> findAlbumsOfGivenPerformer(Performer performer) {
-        return null;
+        Preconditions.checkNotNull(performer, "[performer] cannot be null!");
+        return albumDao.readAlbumsOfGivenPerformer(performer);
     }
 
     @Override
     public List<Album> findAlbumsFromGivenYear(Year year) {
-        return null;
+        Preconditions.checkNotNull(year, "[year] cannot be null!");
+        return albumDao.readAlbumsFromGivenYear(year);
     }
 
     @Override
     public List<Album> findFavoriteAlbums() {
-        return null;
+        // TODO: add logs
+        return albumDao.readFavoriteAlbums();
     }
 }

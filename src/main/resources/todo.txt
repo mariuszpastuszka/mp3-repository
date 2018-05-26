@@ -1,3 +1,7 @@
+Priorytety:
+1) Swing
+2) log4j + test logowania
+
 1) Przechowuje listę albumów wraz z mp3
     Album:
         - lista piosenek

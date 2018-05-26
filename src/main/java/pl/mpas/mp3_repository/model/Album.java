@@ -47,5 +47,21 @@ public class Album {
         this.mediaType = mediaType;
     }
 
-
+    @Override
+    public String toString() {
+        return "Album{" +
+                "performer=" + performer +
+                ", publicationDate=" + publicationDate +
+                ", phonographicPublication='" + phonographicPublication + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", category='" + category + '\'' +
+                ", albumCover=" + albumCover +
+                ", price=" + price +
+                ", albumEvaluation=" + albumEvaluation +
+                ", opinion='" + opinion + '\'' +
+                ", mediaType=" + mediaType +
+                ", listOfSongs=" + listOfSongs +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
