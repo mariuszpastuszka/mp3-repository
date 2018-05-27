@@ -12,9 +12,9 @@ public interface AlbumDao {
     Album updateAlbum(Album updated);
     boolean deleteAlbum(Album toDelete);
     List<Album> readAllAlbums();
-    List<Album> readAlbumsFromCategory(String category);
-    List<Album> readAlbumsOfGivenPerformer(Performer performer);
-    List<Album> readAlbumsFromGivenYear(Year year);
-    List<Album> readFavoriteAlbums();
+//    List<Album> readAlbumsFromCategory(String category);
+//    List<Album> readAlbumsOfGivenPerformer(Performer performer);
+//    List<Album> readAlbumsFromGivenYear(Year year);
+//    List<Album> readFavoriteAlbums();
 }
 

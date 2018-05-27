@@ -8,6 +8,7 @@ import pl.mpas.mp3_repository.model.Performer;
 
 import java.time.Year;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AlbumServiceImpl implements AlbumService {
     private AlbumDao albumDao;
@@ -59,7 +60,10 @@ public class AlbumServiceImpl implements AlbumService {
         if (Strings.isNullOrEmpty(category)) {
             throw new IllegalArgumentException("[category] cannot be null!");
         }
-        return albumDao.readAlbumsFromCategory(category);
+
+        return albumDao.readAllAlbums().stream()
+                .filter(album -> album.getCategory().equalsIgnoreCase(category))
+                .collect(Collectors.toList());
     }
 
     @Override
