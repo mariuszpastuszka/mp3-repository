@@ -69,18 +69,23 @@ public class AlbumServiceImpl implements AlbumService {
     @Override
     public List<Album> findAlbumsOfGivenPerformer(Performer performer) {
         Preconditions.checkNotNull(performer, "[performer] cannot be null!");
-        return albumDao.readAlbumsOfGivenPerformer(performer);
+        return albumDao.readAllAlbums().stream()
+                .filter(album -> album.getPerformer().equals(performer))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Album> findAlbumsFromGivenYear(Year year) {
         Preconditions.checkNotNull(year, "[year] cannot be null!");
-        return albumDao.readAlbumsFromGivenYear(year);
+        return albumDao.readAllAlbums().stream()
+                .filter(album -> album.getPublicationDate().getYear() == year.getValue())
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Album> findFavoriteAlbums() {
-        // TODO: add logs
-        return albumDao.readFavoriteAlbums();
+        return albumDao.readAllAlbums().stream()
+                .filter(album -> album.isFavorite())
+                .collect(Collectors.toList());
     }
 }

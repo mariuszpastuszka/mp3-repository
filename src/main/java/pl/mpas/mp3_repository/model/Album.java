@@ -8,18 +8,35 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Album {
-    Performer performer;
-    LocalDate publicationDate;
-    String phonographicPublication;
-    String publisher;
-    String category;
-    File albumCover;
-    double price;
-    Evaluation albumEvaluation;
-    String opinion;
-    MediaType mediaType;
+    private Performer performer;
+    private LocalDate publicationDate;
+    private String phonographicPublication;
+    private String publisher;
+    private String category;
+    private File albumCover;
+    private double price;
+    private RaitingStars albumEvaluation;
+    private String opinion;
+    private MediaType mediaType;
     private List<Song> listOfSongs;
     private String title;
+    boolean isFavorite;
+
+    public Album(Performer performer, LocalDate publicationDate, String phonographicPublication, String publisher, String category, File albumCover, double price, RaitingStars albumEvaluation, String opinion, MediaType mediaType, List<Song> listOfSongs, String title, boolean isFavorite) {
+        this.performer = performer;
+        this.publicationDate = publicationDate;
+        this.phonographicPublication = phonographicPublication;
+        this.publisher = publisher;
+        this.category = category;
+        this.albumCover = albumCover;
+        this.price = price;
+        this.albumEvaluation = albumEvaluation;
+        this.opinion = opinion;
+        this.mediaType = mediaType;
+        this.listOfSongs = listOfSongs;
+        this.title = title;
+        this.isFavorite = isFavorite;
+    }
 
     public Performer getPerformer() {
         return performer;
@@ -77,11 +94,11 @@ public class Album {
         this.price = price;
     }
 
-    public Evaluation getAlbumEvaluation() {
+    public RaitingStars getAlbumRaitingStars() {
         return albumEvaluation;
     }
 
-    public void setAlbumEvaluation(Evaluation albumEvaluation) {
+    public void setAlbumRaitingStars(RaitingStars albumEvaluation) {
         this.albumEvaluation = albumEvaluation;
     }
 
@@ -130,7 +147,7 @@ public class Album {
     public Album() {
     }
 
-    public Album(List<Song> listOfSongs, String title, Performer performer, LocalDate publicationDate, String phonographicPublication, String publisher, String category, File albumCover, double price, Evaluation albumEvaluation, String opinion, MediaType mediaType) {
+    public Album(List<Song> listOfSongs, String title, Performer performer, LocalDate publicationDate, String phonographicPublication, String publisher, String category, File albumCover, double price, RaitingStars albumEvaluation, String opinion, MediaType mediaType) {
         this(listOfSongs, title, performer);
         this.publicationDate = publicationDate;
         this.phonographicPublication = phonographicPublication;
@@ -159,5 +176,13 @@ public class Album {
                 ", listOfSongs=" + listOfSongs +
                 ", title='" + title + '\'' +
                 '}';
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }
