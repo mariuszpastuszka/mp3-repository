@@ -4,6 +4,7 @@ import pl.mpas.mp3_repository.dao.AlbumDao;
 import pl.mpas.mp3_repository.model.Album;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
@@ -12,6 +13,8 @@ public class FilePropertiesDao implements AlbumDao {
     private static final String PROPERTIES_FILE_NAME = "albums.properties";
 
     private Properties fileProperties;
+    private boolean initialized = false;
+    List<Album> albums;
 
     public FilePropertiesDao() {
         fileProperties = new Properties();
@@ -22,6 +25,13 @@ public class FilePropertiesDao implements AlbumDao {
         }
     }
 
+    private void initAlbums() {
+        if (!initialized) {
+            initialized = true;
+            albums = new ArrayList<>();
+            // read albums from properties file
+        }
+    }
     public static void main(String[] args) {
         FilePropertiesDao propertiesDao = new FilePropertiesDao();
         propertiesDao.listPairs();
@@ -37,6 +47,7 @@ public class FilePropertiesDao implements AlbumDao {
 
     @Override
     public boolean saveNewAlbum(Album newAlbum) {
+        initAlbums();
         return false;
     }
 
@@ -57,6 +68,7 @@ public class FilePropertiesDao implements AlbumDao {
 
     @Override
     public List<Album> readAllAlbums() {
+        initAlbums();
         return null;
     }
 }
