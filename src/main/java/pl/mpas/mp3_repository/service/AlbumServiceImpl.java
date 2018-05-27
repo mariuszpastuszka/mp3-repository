@@ -26,8 +26,15 @@ public class AlbumServiceImpl implements AlbumService {
     @Override
     public AlbumCreationResult createNewAlbum(Album newAlbum) {
         Preconditions.checkNotNull(newAlbum, "[newAlbum] cannot be null!");
-        return null;
-//        return albumDao.saveNewAlbum(newAlbum);
+        if (albumDao.checkAlbumExists(newAlbum)) {
+            return AlbumCreationResult.ALREADY_EXISTS;
+        }
+        boolean savingResult = albumDao.saveNewAlbum(newAlbum);
+        if (savingResult) {
+            return AlbumCreationResult.SUCCESS;
+        } else {
+            return AlbumCreationResult.FAILED;
+        }
     }
 
     @Override

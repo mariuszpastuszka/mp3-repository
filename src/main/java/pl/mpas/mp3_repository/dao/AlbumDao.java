@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface AlbumDao {
     boolean saveNewAlbum(Album newAlbum);
+    boolean checkAlbumExists(Album existingOne);
     Album updateAlbum(Album updated);
     boolean deleteAlbum(Album toDelete);
     List<Album> readAllAlbums();
