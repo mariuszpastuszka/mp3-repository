@@ -4,6 +4,7 @@ import pl.mpas.mp3_repository.dao.AlbumDao;
 import pl.mpas.mp3_repository.model.Album;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
@@ -23,11 +24,15 @@ public class FilePropertiesDao implements AlbumDao {
 
     public static void main(String[] args) {
         FilePropertiesDao propertiesDao = new FilePropertiesDao();
-        propertiesDao.listProps();
+        propertiesDao.listPairs();
     }
 
-    private void listProps() {
-        System.out.println(fileProperties.getProperty("albums"));
+    public void listPairs() {
+        Enumeration<?> keys = fileProperties.propertyNames();
+        while (keys.hasMoreElements()) {
+            String key = (String) keys.nextElement();
+            System.out.println(key + ":" + fileProperties.getProperty(key));
+        }
     }
 
     @Override
