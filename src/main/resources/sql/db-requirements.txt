@@ -14,9 +14,45 @@ SONG
  - lengthInSec int not null;
  - title varchar(50) not null;
  - comment varchar(500) null;
- - raiting_id foreign key Raiting_Stars(id);
+ - raiting_id int references Raiting_Stars(id);
+ FOREIGN KEY(raiting_id) ....
 
 SONG_ALBUM
-  - id - primary key;
+  - primary-key(song_id, album_id);
   - song_id - foreign key....
   - album_id - foreign key...
+
+ALBUM_PERFORMER
+ - primary key (album_id, performer_id);
+
+ALBUM_CATEGORY
+  id primary key,
+  category varchar(50) not null;
+
+ALBUM
+  id primary-key;
+  publicationDate date;
+  phonographicPublication varchar(50),
+  publisher varchar(50),  
+  category_id references ALBUM_CATEGORY(id),
+  albumCover blob
+  price decimal;
+  albumEvaluation references Raiting_Stars(id)
+  opinion varchar(512);
+  mediaType varchar check in(ANALOG, DIGITAL);
+  title varchar(50) - not null
+  isFavorite BOOLEAN
+
+PERSON
+ id - primary key;
+ name varchar(50);
+ surname varchar(50);
+
+PERFORMER_PERSON
+ primary_key (person-id, performer-id);
+ member_since date;
+ member_to date;
+
+PERFORMER
+  id - primary key;
+  artistName varchar(50);
