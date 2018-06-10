@@ -1,0 +1,22 @@
+Raiting_Stars:
+ - id int not null auto_increment primary key;
+ - raiting varchar not null;
+ - insert - 
+    NONE,
+    ONE_STAR,
+    TWO_STARS,
+    THREE_STARS,
+    FOUR_STARS,
+    FIVE_STARS
+
+SONG
+ - id int not null auto_increment primary key;
+ - lengthInSec int not null;
+ - title varchar(50) not null;
+ - comment varchar(500) null;
+ - raiting_id foreign key Raiting_Stars(id);
+
+SONG_ALBUM
+  - id - primary key;
+  - song_id - foreign key....
+  - album_id - foreign key...
