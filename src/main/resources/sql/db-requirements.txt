@@ -17,14 +17,6 @@ SONG
  - raiting_id int references Raiting_Stars(id);
  FOREIGN KEY(raiting_id) ....
 
-SONG_ALBUM
-  - primary-key(song_id, album_id);
-  - song_id - foreign key....
-  - album_id - foreign key...
-
-ALBUM_PERFORMER
- - primary key (album_id, performer_id);
-
 ALBUM_CATEGORY
   id primary key,
   category varchar(50) not null;
@@ -33,7 +25,7 @@ ALBUM
   id primary-key;
   publicationDate date;
   phonographicPublication varchar(50),
-  publisher varchar(50),  
+  publisher varchar(50),
   category_id references ALBUM_CATEGORY(id),
   albumCover blob
   price decimal;
@@ -42,6 +34,18 @@ ALBUM
   mediaType varchar check in(ANALOG, DIGITAL);
   title varchar(50) - not null
   isFavorite BOOLEAN
+
+SONG_ALBUM
+  - primary-key(song_id, album_id);
+  - song_id - foreign key....
+  - album_id - foreign key...
+
+PERFORMER
+  id - primary key;
+  artistName varchar(50);
+
+ALBUM_PERFORMER
+ - primary key (album_id, performer_id);
 
 PERSON
  id - primary key;
@@ -58,9 +62,6 @@ PERFORMER_PERSON
  member_since date;
  member_to date;
 
-PERFORMER
-  id - primary key;
-  artistName varchar(50);
 
 
 
