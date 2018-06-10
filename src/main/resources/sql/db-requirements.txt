@@ -50,9 +50,19 @@ PERSON
 
 PERFORMER_PERSON
  primary_key (person-id, performer-id);
+ person-id int,
+ performer-id int,
+ primary key(person-id, performer-id),
+ foreign key (person-id) references person(id)
+ foreign key (performer-id) references performer(id)
  member_since date;
  member_to date;
 
 PERFORMER
   id - primary key;
   artistName varchar(50);
+
+
+
+
+
